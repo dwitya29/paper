@@ -6,22 +6,28 @@ import { UserService } from '../../services/user.services';
 import { User } from '../../types/user.types';
 
 @Component({
+  selector: 'app-user-list',
+  standalone: true,
   imports: [
     CommonModule,
   ],
-  selector: 'app-user-list',
-  standalone: true,
   templateUrl: './user-list.component.html',
 })
 export class UserListComponent {
-  users: User[] = []
   displayedColumns = ['name', 'email', 'phone']
+  users: User[] = []
+  isLoading = true
 
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.userService.getUserList().subscribe(data => {
       this.users = data
+      this.isLoading = false
     })
+  }
+
+  goToUserDetail(id: number): void {
+    this.router.navigate(['/user', id])
   }
 }

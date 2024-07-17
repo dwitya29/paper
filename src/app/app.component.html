@@ -1,13 +1,11 @@
 <main>
   <div class="navbar bg-neutral text-neutral-content">
-    <a class="btn btn-ghost text-xl">{{ title }}</a>
+    <a routerLink="/" class="btn btn-ghost text-xl">{{ title }}</a>
   </div>
-  <div class="p-4 sm:p-8 md:p-16">
+  <div class="p-4 sm:p-8 md:p-16 min-h-[calc(100vh-132px)]">
     <router-outlet />
   </div>
-  <footer class="footer bg-primary text-primary-content items-center p-4">
-    <aside class="grid-flow-col items-center">
-      <p>Copyright &copy; {{ currentYear }} - All right reserved</p>
-    </aside>
+  <footer class="footer bg-primary text-primary-content items-center justify-center p-6">
+    <div>Copyright &copy; {{ currentYear }} - All right reserved</div>
   </footer>
 </main>

@@ -1,1 +1,83 @@
-
+<div class="flex flex-col gap-8 sm:gap-12">
+  <div class="flex flex-row justify-start items-center gap-4">
+    <button class="btn btn-square btn-outline btn-xs sm:btn-sm" routerLink="/">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <h1 class="text-xl sm:text-2xl">
+      User Detail
+    </h1>
+  </div>
+  <div class="flex flex-col gap-6 sm:gap-8">
+    <div class="flex flex-row items-center gap-4">
+      <div class="avatar">
+        <div class="w-24 h-24 flex rounded-full bg-primary content-center text-center text-white text-6xl font-bold">
+          {{ user?.name?.substring(0, 1) }}
+        </div>
+      </div>
+      <div *ngIf="isLoading" class="flex flex-col gap-2">
+        <div class="skeleton h-5 w-48"></div>
+        <div class="skeleton h-5 w-40"></div>
+      </div>
+      <div *ngIf="!isLoading && !isError">
+        <div class="font-bold">{{ user?.name }}</div>
+        <div class="text-sm opacity-50">{{ user?.email }}</div>
+      </div>
+      <div *ngIf="isError" class="font-semibold">-</div>
+    </div>
+    <hr />
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+      <div>
+        <div class="text-sm opacity-50 mb-2">Name</div>
+        <div *ngIf="isLoading" class="skeleton h-6 w-48"></div>
+        <div *ngIf="isError" class="font-semibold">-</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold" data-test-id="user-name">{{ user?.name }}</div>
+      </div>
+      <div>
+        <div class="text-sm opacity-50 mb-2">Email</div>
+        <div *ngIf="isLoading" class="skeleton h-6 w-48"></div>
+        <div *ngIf="isError" class="font-semibold">-</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold">
+          <a class="link link-primary link-hover">{{ user?.email }}</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-sm opacity-50 mb-2">Phone Number</div>
+        <div *ngIf="isLoading" class="skeleton h-6 w-48"></div>
+        <div *ngIf="isError" class="font-semibold">-</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold">{{ user?.phone }}</div>
+      </div>
+      <div>
+        <div class="text-sm opacity-50 mb-2">Website</div>
+        <div *ngIf="isLoading" class="skeleton h-6 w-48"></div>
+        <div *ngIf="isError" class="font-semibold">-</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold">
+          <a class="link link-primary link-hover">{{ user?.website }}</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-sm opacity-50 mb-2">Address</div>
+        <div *ngIf="isLoading" class="skeleton h-6 w-48"></div>
+        <div *ngIf="isError" class="font-semibold">-</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold">{{ user?.address?.street}}, {{user?.address?.suite }}</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold">{{ user?.address?.city}}, {{user?.address?.zipcode }}</div>
+      </div>
+      <div>
+        <div class="text-sm opacity-50 mb-2">Company</div>
+        <div *ngIf="isLoading" class="skeleton h-6 w-48"></div>
+        <div *ngIf="isError" class="font-semibold">-</div>
+        <div *ngIf="!isLoading && !isError" class="font-semibold">{{ user?.company?.name }}</div>
+      </div>
+    </div>
+  </div>
+</div>
