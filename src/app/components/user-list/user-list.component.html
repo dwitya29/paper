@@ -23,7 +23,9 @@
           </div>
         </td>
         <td class="hidden md:table-cell">{{ user.phone }}</td>
-        <td class="hidden sm:table-cell">{{ user.website }}</td>
+        <td class="hidden sm:table-cell">
+          <a class="link link-primary link-hover">{{ user?.website }}</a>
+        </td>
         <td>
           <button (click)="goToUserDetail(user.id)" class="btn btn-ghost btn-xs">Details</button>
         </td>
