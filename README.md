@@ -16,7 +16,7 @@ Thank you for the opportunity to test that has been given, I really hope that th
 
 ## Development server
 
-Run `ng serve` for a dev server then navigate to `http://localhost:4200/`.
+Run `ng serve` for a dev server then navigate to [http://localhost:4200/](http://localhost:4200/).
 
 ## Running unit tests
 
